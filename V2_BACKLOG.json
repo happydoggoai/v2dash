@@ -1,0 +1,1036 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-12T12:56:39Z",
+  "generated_from": [
+    "project-m-war-room/VISION-LOCK-V2-2026-04-24.md (top canonical authority)",
+    "project-m-war-room/V2-MASTER-STRATEGY-2026-04-24.md (top canonical authority)",
+    "audits/2026-05-07/v2-architecture-reconciliation.md",
+    "project-m-war-room/V2-PHASED-POA-2026-04-25.md",
+    "handoffs/WARROOM-MASTER-HANDOFF-2026-04-24.md",
+    "shadow-v2/00_BOOT/WAR-ROOM-CONTEXT.md",
+    "docs/strategy/SAAS_MASTER_PLAN.md",
+    "handoffs/BOARDING-8-DECISIONS-LOCKED-2026-05-08.md"
+  ],
+  "items": [
+    {
+      "id": "V2-000",
+      "name": "Telegram Bridge",
+      "status": "SHIPPED",
+      "priority": "P0",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a73",
+      "v1_reuse": [
+        "Pattern 30 AI-call-and-parse (Gemini transcription)",
+        "Pattern 17 operational error alert"
+      ],
+      "v2_new": [
+        "File-based inbox/outbox queue",
+        "Git commit integration from n8n"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "TELEGRAM_BRIDGE_SPEC.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false,
+      "status_history": [
+        {
+          "status": "SHIPPED",
+          "timestamp": "2026-05-11T21:04:00+05:30",
+          "reason": "Telegram_Bridge_v1 deployed \u2014 workflow XnbRGp8TUV1Kyvv3 active, 16 nodes, bridge bot isolated (commit 57a8c6a)"
+        }
+      ]
+    },
+    {
+      "id": "V2-001",
+      "name": "Cost Budget + Cost Tracker",
+      "status": "CANCELLED",
+      "priority": "P0",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a78, DEFAULT_DECISIONS.md \u00a710",
+      "v1_reuse": [],
+      "v2_new": [
+        "Anthropic usage polling",
+        "5-tier threshold system",
+        "Throttle flag"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "COST_BUDGET.md",
+      "complexity_estimate": "small",
+      "awaiting_hassan": false,
+      "status_history": [
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-05-11T23:30:00+05:30",
+          "reason": "Cancelled per D-2026-05-11-05. Cost Tracker policed a fixed-cost subscription with no programmatic data source. See decision log for full rationale."
+        }
+      ]
+    },
+    {
+      "id": "V2-002",
+      "name": "Rollback Playbook Implementation",
+      "status": "SHIPPED",
+      "priority": "P0",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a79, DEFAULT_DECISIONS.md \u00a79",
+      "v1_reuse": [],
+      "v2_new": [
+        "Auto-rollback via n8n API",
+        "Telegram rollback receipt"
+      ],
+      "depends_on": [
+        "V2-000"
+      ],
+      "blockers": [],
+      "related_handoff": "ROLLBACK_PLAYBOOK.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false,
+      "n8n_workflow_id": "MLGZUIm2QJiKBeJw",
+      "status_history": [
+        {
+          "status": "IN_PROGRESS",
+          "timestamp": "2026-05-11T23:06:00+05:30",
+          "reason": "Rollback_Executor_v1 deployed active=false, 10 nodes, F11 complete. Scope: executor-only per D-V2-002-A. Watch-window monitoring deferred to V2-002.5."
+        },
+        {
+          "status": "SHIPPED",
+          "timestamp": "2026-05-11T23:30:00+05:30",
+          "reason": "Rollback_Executor_v1 activated in production. 10 nodes, 3 credentials, 3 smoke scenarios passed. Webhook: /webhook/rollback-executor. Scope: executor-only per D-V2-002-A."
+        }
+      ]
+    },
+    {
+      "id": "V2-003",
+      "name": "Critical Event Detector",
+      "status": "SHIPPED",
+      "priority": "P0",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a74",
+      "v1_reuse": [
+        "Pattern 17 operational error alert"
+      ],
+      "v2_new": [
+        "10-event detection rules",
+        "Suppression state management",
+        "5-minute polling cycle"
+      ],
+      "depends_on": [
+        "V2-000"
+      ],
+      "blockers": [],
+      "related_handoff": "CRITICAL_EVENTS.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false,
+      "status_history": [
+        {
+          "status": "IN_PROGRESS",
+          "timestamp": "2026-05-12T12:56:39Z",
+          "reason": "Phase 1 Re-anchor + Phase 2 Discovery + Phase 3 Design committed (artifacts at shadow-v2/00_BOOT/working/V2-003-*.md after labeling reconciliation). Phase 4 Build pending Hassan approval."
+        },
+        {
+          "status": "SHIPPED",
+          "timestamp": "2026-05-13T12:25:00+05:30",
+          "reason": "Phase B (23 deploys across 6 workflows, V1 invariants preserved) + Phase C smoke (C.1 single, C.2 burst, C.3 Event 11 fallback + recovery, C.4 detector activation) all pass. Skinny v1 \u2014 cascade suppression / full keyword scan / Test 5 collision smoke / reset-on-2xx deferred to dispatcher v2. 5 latent bugs found and fixed during build (see V2-MASTER-TRACKER decisions log 2026-05-13)."
+        }
+      ]
+    },
+    {
+      "id": "V2-004",
+      "name": "Scheduled Tasks (8 tasks)",
+      "status": "PROPOSED",
+      "priority": "P0",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a72",
+      "v1_reuse": [],
+      "v2_new": [
+        "Morning brief",
+        "Boarding heartbeat",
+        "Live ops watch",
+        "Decision log",
+        "PK drift detector",
+        "V2 progress recompute",
+        "Pattern librarian",
+        "Inbox poller"
+      ],
+      "depends_on": [
+        "V2-000"
+      ],
+      "blockers": [],
+      "related_handoff": "SCHEDULED_TASKS.md",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-005",
+      "name": "Test Runner",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a72 (Test Runner role)",
+      "v1_reuse": [
+        "Pattern 30 AI-call-and-parse",
+        "Pattern 62 Zoko send"
+      ],
+      "v2_new": [
+        "500-scenario generation via Haiku",
+        "Throttled real-channel testing",
+        "Pattern promotion pipeline"
+      ],
+      "depends_on": [
+        "V2-000"
+      ],
+      "blockers": [],
+      "related_handoff": "TEST_RUNNER_SPEC.md",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-006",
+      "name": "V2 Progress Dashboard",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "V2_PROGRESS_SCHEMA.md",
+      "v1_reuse": [],
+      "v2_new": [
+        "V2_PROGRESS.json schema",
+        "Static HTML dashboard",
+        "Summary stats computation"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "V2_PROGRESS_SCHEMA.md",
+      "complexity_estimate": "small",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-007",
+      "name": "Codex Bible Integration (Researcher + Updater)",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a72 (Codex role)",
+      "v1_reuse": [
+        "Existing pattern library (40 patterns)",
+        "shadow-v2/00_BOOT/canonical/ structure"
+      ],
+      "v2_new": [
+        "bible-researcher.md subagent",
+        "bible-updater.md subagent",
+        "Mandatory Researcher invocation in spec flow"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "CODEX_BIBLE_INTEGRATION.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-010",
+      "name": "Boarding Coverage Tracker",
+      "status": "IN_PROGRESS",
+      "priority": "P0",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a711 (hourly parent updates), BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
+      "v1_reuse": [
+        "Pattern 81 coverage-threshold-alarm",
+        "Pattern 80 scheduled-template-send",
+        "Pattern 63 daily-doggo-update-pipeline"
+      ],
+      "v2_new": [
+        "smoke_mode scoping",
+        "Task slot row model"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "handoffs/HANDOFF-16-B.5-coverage-tracker-v2.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false,
+      "n8n_workflow_id": "EjN98zekoPpmrihl",
+      "recovery_note": "Recovery investigation completed 2026-05-12. Pre-recovery snapshot: shadow-v2/workflows/boarding-coverage-tracker-v1-pre-recovery.json. Recovery memo: shadow-v2/00_BOOT/working/V2-010-recovery-memo.md. Blocking bug: B16 violation on Fetch_Today_Updates (reads 11K+ rows). Build dispatches B-D scheduled for next session.",
+      "status_history": [
+        {
+          "status": "IN_PROGRESS",
+          "timestamp": "2026-05-12T00:30:00+05:30",
+          "reason": "Recovery memo produced \u2014 see V2-010-recovery-memo.md. 18-node workflow deployed to n8n (inactive, v64). 3 failed executions diagnosed: 1 early-version wiring bug (resolved in v64), 2 B16 violations (Sheets 10K+ row read). Build session next."
+        }
+      ]
+    },
+    {
+      "id": "V2-011",
+      "name": "Boarding Daily Digest",
+      "status": "PROPOSED",
+      "priority": "P0",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a711, BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
+      "v1_reuse": [
+        "Pattern 81",
+        "Pattern 80",
+        "Pattern 63"
+      ],
+      "v2_new": [
+        "Boarding voice system prompt inline",
+        "Per-parent photo aggregation"
+      ],
+      "depends_on": [
+        "V2-010"
+      ],
+      "blockers": [
+        "Gated on HANDOFF-16-A verification"
+      ],
+      "related_handoff": "handoffs/HANDOFF-16-B-boarding-daily-digest.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-012",
+      "name": "Boarding Parent Q&A Handler",
+      "status": "PROPOSED",
+      "priority": "P0",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a73 (bidirectional query), BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
+      "v1_reuse": [
+        "Pattern 40 intent-gated-context-fetch",
+        "Pattern 33 parallel-context-assembly"
+      ],
+      "v2_new": [
+        "Boarding-scoped context window",
+        "Rich media response (photos/videos)"
+      ],
+      "depends_on": [
+        "V2-010",
+        "V2-011"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-013",
+      "name": "Boarding Intake Flow",
+      "status": "PROPOSED",
+      "priority": "P0",
+      "type": "MODULE",
+      "vision_source": "BOARDING-8-DECISIONS-LOCKED-2026-05-08.md (10 capabilities)",
+      "v1_reuse": [
+        "Pattern 20 channel-CRM-lookup-or-create",
+        "Pattern 21 CRM-entity-CRUD"
+      ],
+      "v2_new": [
+        "Boarding-specific intake form",
+        "Vaccination gate check"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-014",
+      "name": "Boarding Discharge Flow",
+      "status": "PROPOSED",
+      "priority": "P0",
+      "type": "MODULE",
+      "vision_source": "BOARDING-8-DECISIONS-LOCKED-2026-05-08.md (10 capabilities)",
+      "v1_reuse": [
+        "Pattern 22 CRM-data-pushback"
+      ],
+      "v2_new": [
+        "Discharge checklist",
+        "Final report generation",
+        "Service_Record closure"
+      ],
+      "depends_on": [
+        "V2-013"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-015",
+      "name": "Boarding Extension Management",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "BOARDING-8-DECISIONS-LOCKED-2026-05-08.md (10 capabilities)",
+      "v1_reuse": [
+        "Pattern 70 multi-gate-chain"
+      ],
+      "v2_new": [
+        "Extension request flow",
+        "Overstay detection and billing"
+      ],
+      "depends_on": [
+        "V2-013"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-016",
+      "name": "Boarding Staff Command Integration",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "BOARDING-8-DECISIONS-LOCKED-2026-05-08.md Decision 5 (EXTEND Staff_Command_Handler)",
+      "v1_reuse": [
+        "Existing Staff_Command_Handler (151 nodes)"
+      ],
+      "v2_new": [
+        "New boarding commands added to existing handler"
+      ],
+      "depends_on": [
+        "V2-013"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-020",
+      "name": "Caption Enrichment V2",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a71, V2-PHASED-POA-2026-04-25.md Phase 1F",
+      "v1_reuse": [
+        "Content_Organizer workflow",
+        "Pattern 60 media-upload-pipeline"
+      ],
+      "v2_new": [
+        "Staff shorthand \u2192 rich caption via Gemini",
+        "Dual-write to Cloudinary + Sheets"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "handoffs/HANDOFF-14-phase-1f-content-organizer-dual-write-and-caption-enrichment.md",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-021",
+      "name": "Dynamic Contextual Buttons",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a72, BOARDING-8-DECISIONS-LOCKED-2026-05-08.md Decision 3",
+      "v1_reuse": [
+        "Pattern 42 cart-permalink-construction (button template)"
+      ],
+      "v2_new": [
+        "Per-department button routers",
+        "7-day rotation history",
+        "brand_constants inline"
+      ],
+      "depends_on": [
+        "V2-020"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-022",
+      "name": "Bidirectional Query System V2",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a73, V2-PHASED-POA-2026-04-25.md Phase 1J",
+      "v1_reuse": [
+        "Pattern 40 intent-gated-context-fetch",
+        "Pattern 61 media-recall-and-gallery"
+      ],
+      "v2_new": [
+        "Rich media responses",
+        "Active-subscription scoping"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-023",
+      "name": "Self-Learning Engine",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a74, V2-PHASED-POA-2026-04-25.md Phase 1H",
+      "v1_reuse": [
+        "Pattern 52 knowledge-bank-capture"
+      ],
+      "v2_new": [
+        "Daily wins/mistakes log",
+        "Weekly synthesis via Opus",
+        "Compounding knowledge base"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "epic",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-024",
+      "name": "Autonomous Field-Fill Engine",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "WARROOM-MASTER-HANDOFF-2026-04-24.md \u00a7A, V2-PHASED-POA-2026-04-25.md Phase 1G",
+      "v1_reuse": [
+        "Pattern 21 CRM-entity-CRUD",
+        "Pattern 22 CRM-data-pushback"
+      ],
+      "v2_new": [
+        "Shadow auto-detects fillable CRM fields from conversation",
+        "Confidence threshold before write"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-025",
+      "name": "Identity Foundation (Router 31\u219237)",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "V2-PHASED-POA-2026-04-25.md Phase 1C",
+      "v1_reuse": [
+        "Shadow_Router existing 31 routes"
+      ],
+      "v2_new": [
+        "6 new routes",
+        "IG/FB channel identity merge"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "handoffs/HANDOFF-10-phase-1c-identity-foundation.md",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-026",
+      "name": "Household Module + Migration",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a713, V2-PHASED-POA-2026-04-25.md Phase 1D",
+      "v1_reuse": [],
+      "v2_new": [
+        "Household CRM module",
+        "Pet Father/Mother/Guardian roles",
+        "Router enrichment"
+      ],
+      "depends_on": [
+        "V2-025"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-027",
+      "name": "Drive Folder Architecture",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "WARROOM-MASTER-HANDOFF-2026-04-24.md \u00a7B, V2-PHASED-POA-2026-04-25.md Phase 1E",
+      "v1_reuse": [
+        "Existing Cloudinary folder structure"
+      ],
+      "v2_new": [
+        "Per-parent Google Drive folder",
+        "Auto-organization by event/date"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-028",
+      "name": "Remaining Department Handlers (Vet/Training/Grooming/Ecommerce/General)",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "V2-PHASED-POA-2026-04-25.md Phase 1K",
+      "v1_reuse": [
+        "Shadow_Zoko_AI existing handler logic per department"
+      ],
+      "v2_new": [
+        "Department-mode extraction per handler",
+        "Per-department button routers"
+      ],
+      "depends_on": [
+        "V2-010",
+        "V2-025"
+      ],
+      "blockers": [
+        "Each department needs its own 8-decisions-style architectural session with Hassan"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "epic",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-029",
+      "name": "Route Expansion 6\u219210",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "V2-PHASED-POA-2026-04-25.md Phase 1L, WARROOM-MASTER-HANDOFF-2026-04-24.md \u00a7E",
+      "v1_reuse": [
+        "Existing 6-route router"
+      ],
+      "v2_new": [
+        "4 new routes: nutritional, behaviour, educational, events"
+      ],
+      "depends_on": [
+        "V2-025",
+        "V2-028"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-030",
+      "name": "Shadow.AI Decomposition (260\u21928 sub-workflows)",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74 (decomposition targets)",
+      "v1_reuse": [
+        "Shadow_Zoko_AI (260 nodes) \u2014 extract, don't rewrite"
+      ],
+      "v2_new": [
+        "Reception, Memory_Load, Router, Reply_Generator, Vision, Memory_Save, Escalation, Outbound sub-workflows"
+      ],
+      "depends_on": [
+        "V2-028",
+        "V2-029"
+      ],
+      "blockers": [
+        "Requires all department handlers shipped first"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "epic",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-031",
+      "name": "Staff_Command_Handler Decomposition (151\u21925)",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
+      "v1_reuse": [
+        "Staff_Command_Handler (151 nodes)"
+      ],
+      "v2_new": [
+        "DogOps, Content, Sales, Health, Reports sub-handlers"
+      ],
+      "depends_on": [
+        "V2-016"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-032",
+      "name": "PHMS Decomposition (83\u21922)",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
+      "v1_reuse": [
+        "PHMS_Processor (83 nodes)"
+      ],
+      "v2_new": [
+        "PHMS_Admission sub-workflow",
+        "PHMS_Vet_Case sub-workflow"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-033",
+      "name": "Proactive Engine (follow-ups, re-engagement)",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a76 (parent addiction model), docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
+      "v1_reuse": [
+        "Pattern 80 scheduled-template-send"
+      ],
+      "v2_new": [
+        "Time-based follow-up triggers",
+        "Re-engagement campaigns",
+        "Personalized cadence per parent"
+      ],
+      "depends_on": [
+        "V2-023"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-034",
+      "name": "Commerce Module (Shopify orchestration)",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a710 (Shopify + Zoho Books)",
+      "v1_reuse": [
+        "Pattern 41 product-scoring-and-ranking",
+        "Pattern 42 cart-permalink-construction"
+      ],
+      "v2_new": [
+        "Contextual cross-sell (never-direct-sales rule)",
+        "Soft continuation in system prompt"
+      ],
+      "depends_on": [],
+      "blockers": [
+        "Shopify Admin API token expired \u2014 rotate before use"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-035",
+      "name": "Content Boomerang (re-use old content)",
+      "status": "PROPOSED",
+      "priority": "P3",
+      "type": "MODULE",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
+      "v1_reuse": [
+        "Pattern 61 media-recall-and-gallery",
+        "Pattern 43 cached-sheet-data"
+      ],
+      "v2_new": [
+        "Scheduled content re-surfacing",
+        "Relevance scoring by season/context"
+      ],
+      "depends_on": [
+        "V2-020"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-036",
+      "name": "Escalation Router Module",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
+      "v1_reuse": [
+        "Pattern 50 multi-channel-escalation-fanout",
+        "Pattern 51 staff-query-roundtrip"
+      ],
+      "v2_new": [
+        "Rule-based routing by severity",
+        "Escalation tracking in CRM"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-040",
+      "name": "Codex Validator Agent",
+      "status": "BLOCKED",
+      "priority": "P2",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a72, CODEX_BIBLE_INTEGRATION.md",
+      "v1_reuse": [],
+      "v2_new": [
+        "Python + Claude API drift detection script",
+        "n8n weekly cron"
+      ],
+      "depends_on": [
+        "V2-007"
+      ],
+      "blockers": [
+        "Deferred until 10+ workflow leaves exist in canonical/ OR 2026-11-10"
+      ],
+      "related_handoff": "CODEX_BIBLE_INTEGRATION.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-050",
+      "name": "SLA Clarifier Decision",
+      "status": "BLOCKED",
+      "priority": "P1",
+      "type": "DECISION",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md (response time targets)",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "Needs Hassan decision: 10-30s for direct questions, up to 50s for batched?"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-051",
+      "name": "Button Rotation Window Decision",
+      "status": "BLOCKED",
+      "priority": "P1",
+      "type": "DECISION",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a74 (Zoko button rotation)",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "Needs Hassan decision: 7 days locked, or flexible per parent engagement?"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-052",
+      "name": "Weekly Recap Gating Decision",
+      "status": "BLOCKED",
+      "priority": "P2",
+      "type": "DECISION",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a77 (NanoBanana + VEO3)",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "Needs Hassan decision: weekly recap only for >=3 engagements/week, or all active parents?"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-053",
+      "name": "Learning_Case Storage Decision",
+      "status": "BLOCKED",
+      "priority": "P1",
+      "type": "DECISION",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a76 (Zoho CRM Learning_Case)",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "Needs Hassan decision: Zoho custom module or pure Google Sheets?"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-054",
+      "name": "Journey Recap Host Decision",
+      "status": "BLOCKED",
+      "priority": "P3",
+      "type": "DECISION",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a77",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "Needs Hassan decision: VEO3 (quality) or FFmpeg (cost) for journey recaps?"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-055",
+      "name": "WhatsApp Cloud API Migration Timeline",
+      "status": "BLOCKED",
+      "priority": "P2",
+      "type": "DECISION",
+      "vision_source": "project-b-automation/project-knowledge/SaaS_Architecture_Decisions.md (pre-requisite for multi-tenant)",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "Needs Hassan decision: timeline for Zoko \u2192 WhatsApp Cloud API direct migration"
+      ],
+      "related_handoff": "",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": true
+    },
+    {
+      "id": "V2-060",
+      "name": "SESSION-CLOSE-2026-05-09-HANDOFF-16-B PK-vs-Repo Gap",
+      "status": "PROPOSED",
+      "priority": "P3",
+      "type": "DOC_SYNC",
+      "vision_source": "Phase 1 investigation finding",
+      "v1_reuse": [],
+      "v2_new": [],
+      "depends_on": [],
+      "blockers": [
+        "File referenced in handoff spec does not exist on disk. Determine if it exists in PK only, or was never created."
+      ],
+      "related_handoff": "handoffs/HANDOFF-V2-ORCHESTRATION-SETUP.md",
+      "complexity_estimate": "trivial",
+      "awaiting_hassan": false
+    },
+    {
+      "id": "V2-008",
+      "name": "Pass 1.5 Omnibus Sweep \u2014 drafting + execution",
+      "status": "SHIPPED",
+      "priority": "P0",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "DECISIONS_LOCKED.md D-2026-05-10-12 (flip to omnibus)",
+      "v1_reuse": [],
+      "v2_new": [
+        "Phase 1 housekeeping batch (A1 bible_thin + A4 vision-doc justification across 8 specs)",
+        "Phase 2 section-completeness per spec (B smoke / C edge cases / E rollback / I deployment where applicable)",
+        "Phase 3 architectural decisions consolidated (all 5 outstanding decisions resolved in-session \u2014 see Locks 9-13 / D-2026-05-10-15 through D-2026-05-10-19)",
+        "Phase 4 cost realism + per-task INVOKE mode declarations + OPERATING_MODEL \u00a78.1 amendment text \u2014 shipped 2026-05-11"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "HANDOFF-V2-PASS-1.5-OMNIBUS-SWEEP.md",
+      "complexity_estimate": "large",
+      "awaiting_hassan": false,
+      "blocks": [
+        "V2-000",
+        "V2-001",
+        "V2-002",
+        "V2-003",
+        "V2-004",
+        "V2-005",
+        "V2-006",
+        "V2-007",
+        "V2-009"
+      ],
+      "status_history": [
+        {
+          "status": "SHIPPED",
+          "timestamp": "2026-05-11T15:18:03+05:30",
+          "reason": "Phase 4 closure \u2014 \u00a78.1 amendment + INVOKE declarations + COST_BUDGET reconciliation"
+        }
+      ]
+    },
+    {
+      "id": "V2-009",
+      "name": "OPERATING_MODEL.md \u00a78.1 amendment \u2014 bash-first invocation principle",
+      "status": "SHIPPED",
+      "priority": "P0",
+      "type": "DOC_AMENDMENT",
+      "vision_source": "DECISIONS_LOCKED.md D-2026-05-10-13 + D-2026-05-10-19",
+      "v1_reuse": [],
+      "v2_new": [
+        "New \u00a78.1 sub-section in OPERATING_MODEL.md codifying INVOKE_ON_WORK_DETECTED as default and ALWAYS_INVOKE as exception",
+        "Per-task INVOKE mode declarations in V2-004 SCHEDULED_TASKS.md (coupled deliverable)"
+      ],
+      "depends_on": [
+        "V2-008"
+      ],
+      "blockers": [],
+      "related_handoff": "HANDOFF-V2-PASS-1.5-OMNIBUS-SWEEP.md (Phase 4)",
+      "complexity_estimate": "small",
+      "awaiting_hassan": false,
+      "status_history": [
+        {
+          "status": "SHIPPED",
+          "timestamp": "2026-05-11T15:18:03+05:30",
+          "reason": "\u00a78.1 amendment landed; SCHEDULED_TASKS declarations applied; SPEC_PREFLIGHT_CHECKLIST A6 added"
+        }
+      ]
+    },
+    {
+      "id": "V2-002.5",
+      "name": "Watch_Window_Monitor_v1",
+      "status": "PROPOSED",
+      "priority": "P1",
+      "type": "INFRASTRUCTURE",
+      "vision_source": "OPERATING_MODEL.md \u00a79, D-2026-05-11-07",
+      "v1_reuse": [],
+      "v2_new": [
+        "Cron-based watch-window polling",
+        "Threshold breach detection (error rate, webhook 5xx, sheet failures)",
+        "Arming logic (writes watch-windows/{workflow_id}.json to GitHub)",
+        "Calls Rollback_Executor_v1 webhook on breach"
+      ],
+      "depends_on": [
+        "V2-002"
+      ],
+      "blockers": [],
+      "related_handoff": "",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false,
+      "carry_from": "V2-002 build session, 2026-05-11",
+      "open_questions": [
+        "OQ-V2-002.5-01: customer-facing report detection source (from V2-002 OQ-01)",
+        "OQ-V2-002.5-02: who arms the watch window (from V2-002 OQ-02)",
+        "OQ-V2-002.5-03: polling interval and threshold spec (from V2-002 OQ-03)",
+        "OQ-V2-002.5-07: noisy-baseline pre-deploy gate location (from V2-002 OQ-07)",
+        "OQ-V2-002.5-08: cross-rollback dependencies coordination (from V2-002 OQ-08)"
+      ]
+    }
+  ],
+  "summary": {
+    "total_items": 43,
+    "shipped": 4,
+    "in_progress": 1,
+    "blocked": 7,
+    "approved": 0,
+    "proposed": 29,
+    "cancelled": 1,
+    "pct_complete": 9.5,
+    "biggest_blocker": "6 architectural decisions remain BLOCKED awaiting Hassan input: V2-050 SLA clarifier, V2-051 button rotation window, V2-052 weekly recap gating, V2-053 Learning_Case storage, V2-054 journey recap host, V2-055 WhatsApp Cloud API timeline",
+    "next_3_priority": [
+      "V2-003 Critical Event Detector",
+      "V2-004 Scheduled Tasks (8 tasks)",
+      "V2-010 Boarding Coverage Tracker"
+    ],
+    "last_5_shipped": [
+      "V2-002 (2026-05-11)",
+      "V2-000 (2026-05-11)",
+      "V2-009 (2026-05-11)",
+      "V2-008 (2026-05-11)"
+    ],
+    "items_awaiting_hassan": [
+      "V2-028",
+      "V2-030",
+      "V2-050",
+      "V2-051",
+      "V2-052",
+      "V2-053",
+      "V2-054",
+      "V2-055"
+    ],
+    "last_updated": "2026-05-11T23:30:00+05:30"
+  }
+}
