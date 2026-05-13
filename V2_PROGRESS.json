@@ -1,56 +1,121 @@
 {
   "version": "1.3",
-  "last_updated": "2026-05-11T23:30:00+05:30",
+  "last_updated": "2026-05-13T14:05:26+05:30",
   "summary": {
     "total_items": 42,
-    "shipped": 4,
+    "shipped": 6,
     "in_progress": 1,
     "blocked": 7,
     "cancelled": 1,
-    "proposed": 29,
+    "proposed": 27,
     "approved": 0,
-    "pct_complete": 9.5,
+    "pct_complete": 14.3,
     "biggest_blocker": "6 architectural decisions awaiting Hassan (SLA, button rotation, weekly recap, Learning_Case storage, journey recap host, WhatsApp Cloud API timeline)",
-    "next_3_priority": ["V2-003 Critical Event Detector", "V2-004 Scheduled Tasks (8 tasks)", "V2-010 Boarding Coverage Tracker"],
-    "last_5_shipped": ["V2-002 (2026-05-11)", "V2-000 (2026-05-11)", "V2-009 (2026-05-11)", "V2-008 (2026-05-11)"],
-    "items_awaiting_hassan": ["V2-028", "V2-030", "V2-050", "V2-051", "V2-052", "V2-053", "V2-054", "V2-055"]
+    "next_3_priority": [
+      "V2-010 Boarding Coverage Tracker",
+      "V2-004 Scheduled Tasks (8 tasks)",
+      "V2-012 Boarding Parent Q&A Handler"
+    ],
+    "last_5_shipped": [
+      "V2-006 (2026-05-13)",
+      "V2-003 (2026-05-13)",
+      "V2-002 (2026-05-11)",
+      "V2-000 (2026-05-11)",
+      "V2-008 (2026-05-11)"
+    ],
+    "items_awaiting_hassan": [
+      "V2-028",
+      "V2-030",
+      "V2-050",
+      "V2-051",
+      "V2-052",
+      "V2-053",
+      "V2-054",
+      "V2-055"
+    ]
   },
   "phases": [
     {
       "phase_id": "INFRA",
       "name": "Infrastructure (Telegram, Cost, Rollback, Events, Tasks, Test Runner, Dashboard, Codex)",
-      "pct_complete": 0.0,
-      "items": ["V2-000", "V2-001", "V2-002", "V2-003", "V2-004", "V2-005", "V2-006", "V2-007", "V2-040"]
+      "pct_complete": 44.4,
+      "items": [
+        "V2-000",
+        "V2-001",
+        "V2-002",
+        "V2-003",
+        "V2-004",
+        "V2-005",
+        "V2-006",
+        "V2-007",
+        "V2-040"
+      ]
     },
     {
       "phase_id": "BOARDING",
       "name": "Boarding Department (Coverage, Digest, Q&A, Intake, Discharge, Extension, Staff Cmd)",
       "pct_complete": 0.0,
-      "items": ["V2-010", "V2-011", "V2-012", "V2-013", "V2-014", "V2-015", "V2-016"]
+      "items": [
+        "V2-010",
+        "V2-011",
+        "V2-012",
+        "V2-013",
+        "V2-014",
+        "V2-015",
+        "V2-016"
+      ]
     },
     {
       "phase_id": "VISION",
       "name": "Vision Modules (Caption, Buttons, Query, Self-Learn, Field-Fill, Identity, Household)",
       "pct_complete": 0.0,
-      "items": ["V2-020", "V2-021", "V2-022", "V2-023", "V2-024", "V2-025", "V2-026"]
+      "items": [
+        "V2-020",
+        "V2-021",
+        "V2-022",
+        "V2-023",
+        "V2-024",
+        "V2-025",
+        "V2-026"
+      ]
     },
     {
       "phase_id": "SCALE",
       "name": "Scale (Drive, Remaining Handlers, Route Expansion, Decompositions, Proactive, Commerce, Boomerang, Escalation)",
       "pct_complete": 0.0,
-      "items": ["V2-027", "V2-028", "V2-029", "V2-030", "V2-031", "V2-032", "V2-033", "V2-034", "V2-035", "V2-036"]
+      "items": [
+        "V2-027",
+        "V2-028",
+        "V2-029",
+        "V2-030",
+        "V2-031",
+        "V2-032",
+        "V2-033",
+        "V2-034",
+        "V2-035",
+        "V2-036"
+      ]
     },
     {
       "phase_id": "DECISIONS",
       "name": "Deferred Architectural Decisions",
       "pct_complete": 0.0,
-      "items": ["V2-050", "V2-051", "V2-052", "V2-053", "V2-054", "V2-055"]
+      "items": [
+        "V2-050",
+        "V2-051",
+        "V2-052",
+        "V2-053",
+        "V2-054",
+        "V2-055"
+      ]
     },
     {
       "phase_id": "DOC_SYNC",
       "name": "Documentation Sync",
       "pct_complete": 0.0,
-      "items": ["V2-060"]
+      "items": [
+        "V2-060"
+      ]
     }
   ]
 }
