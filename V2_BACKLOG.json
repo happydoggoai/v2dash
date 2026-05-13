@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-05-13T10:04:14Z",
+  "last_updated": "2026-05-13T10:07:25Z",
   "generated_from": [
     "project-m-war-room/VISION-LOCK-V2-2026-04-24.md (top canonical authority)",
     "project-m-war-room/V2-MASTER-STRATEGY-2026-04-24.md (top canonical authority)",
@@ -265,6 +265,34 @@
           "status": "IN_PROGRESS",
           "timestamp": "2026-05-13T15:34:14+05:30",
           "reason": "Phase 4 Build session 2026-05-13. 8 PATCHes applied to workflow EjN98zekoPpmrihl (20 nodes, was 18): play_time slot added, Lakshmi dropped from routing, +play verbs, B16 fix via new Fetch_Sheet_Metadata HTTP + Compute_Recent_Range Code nodes (C16 forced +1 node beyond spec, Hassan-ratified), C10 continueOnFail on all 4 Sheets reads, Compute_Slots extended to 5 slots. Boarding_Day_Plan schema extended with play_time_target_time column. Shadow SR Check_In populated as smoke target. Smoke STALLED: webhook /coverage-tracker-smoke returns HTTP 200 'Workflow was started' but no executions appear in n8n public API across 90+ seconds, 3 fire attempts, Shadow_Error_Alert silent. Workflow returned to active=false. Full diagnostic: audits/2026-05-13/V2-010-smoke-stall.md (commit 932c25a48e50). Pre-deploy backup: backups/2026-05-13/Boarding_Coverage_Tracker_v1-pre-V2-010-ship.json (commit 7e9a7317ae27). Post-edit export: n8n-exports/Boarding_Coverage_Tracker_v1_2026-05-13_post-V2-010-ship.json (commit f9a2bf57338f). Next session opens with n8n UI executions-tab check."
+        }
+      ]
+    },
+    {
+      "id": "V2-010.1",
+      "name": "Boarding Service_Category case-sensitivity hardening",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MAINTENANCE",
+      "vision_source": "discovered during V2-010 Phase 4 Build investigation 2026-05-13",
+      "v1_reuse": [],
+      "v2_new": [
+        "case-insensitive Service_Category whitelist in Filter_Boarding_Dogs"
+      ],
+      "depends_on": [
+        "V2-010"
+      ],
+      "blockers": [],
+      "related_handoff": null,
+      "complexity_estimate": "tiny",
+      "awaiting_hassan": false,
+      "discovered_during": "V2-010 Phase 4 Build read-only investigation 2026-05-13",
+      "scope_note": "Zoho has 3 records with Service_Category='Board_And_Train' (capital A). Filter_Boarding_Dogs whitelist is ['Boarding','Board_and_Train','Board and Train','Daycare'] \u2014 lowercase variants only. The 3 capital-A records get silently excluded from coverage tracking. Fix: lowercase comparison in Filter_Boarding_Dogs, OR add 'Board_And_Train' to whitelist. Out-of-scope for V2-010 per Rule B2 (don't touch what you weren't asked).",
+      "status_history": [
+        {
+          "status": "PROPOSED",
+          "timestamp": "2026-05-13T10:07:25Z",
+          "reason": "Filed from V2-010 Phase 4 Build session 2026-05-13 read-only investigation. Discovered when querying active Service_Records and noticing 3 records were category 'Board_And_Train' (capital A) \u2014 Filter_Boarding_Dogs whitelist has lowercase 'Board_and_Train' only. Pre-existing latent bug; not blocking V2-010."
         }
       ]
     },
