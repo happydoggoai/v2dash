@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-05-13T14:12:19+05:30",
+  "last_updated": "2026-05-13T10:04:14Z",
   "generated_from": [
     "project-m-war-room/VISION-LOCK-V2-2026-04-24.md (top canonical authority)",
     "project-m-war-room/V2-MASTER-STRATEGY-2026-04-24.md (top canonical authority)",
@@ -18,7 +18,7 @@
       "status": "SHIPPED",
       "priority": "P0",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §3",
+      "vision_source": "OPERATING_MODEL.md \u00a73",
       "v1_reuse": [
         "Pattern 30 AI-call-and-parse (Gemini transcription)",
         "Pattern 17 operational error alert"
@@ -36,7 +36,7 @@
         {
           "status": "SHIPPED",
           "timestamp": "2026-05-11T21:04:00+05:30",
-          "reason": "Telegram_Bridge_v1 deployed — workflow XnbRGp8TUV1Kyvv3 active, 16 nodes, bridge bot isolated (commit 57a8c6a)"
+          "reason": "Telegram_Bridge_v1 deployed \u2014 workflow XnbRGp8TUV1Kyvv3 active, 16 nodes, bridge bot isolated (commit 57a8c6a)"
         }
       ]
     },
@@ -46,7 +46,7 @@
       "status": "CANCELLED",
       "priority": "P0",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §8, DEFAULT_DECISIONS.md §10",
+      "vision_source": "OPERATING_MODEL.md \u00a78, DEFAULT_DECISIONS.md \u00a710",
       "v1_reuse": [],
       "v2_new": [
         "Anthropic usage polling",
@@ -72,7 +72,7 @@
       "status": "SHIPPED",
       "priority": "P0",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §9, DEFAULT_DECISIONS.md §9",
+      "vision_source": "OPERATING_MODEL.md \u00a79, DEFAULT_DECISIONS.md \u00a79",
       "v1_reuse": [],
       "v2_new": [
         "Auto-rollback via n8n API",
@@ -105,7 +105,7 @@
       "status": "SHIPPED",
       "priority": "P0",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §4",
+      "vision_source": "OPERATING_MODEL.md \u00a74",
       "v1_reuse": [
         "Pattern 17 operational error alert"
       ],
@@ -130,7 +130,7 @@
         {
           "status": "SHIPPED",
           "timestamp": "2026-05-13T12:25:00+05:30",
-          "reason": "Phase B (23 deploys across 6 workflows, V1 invariants preserved) + Phase C smoke (C.1 single, C.2 burst, C.3 Event 11 fallback + recovery, C.4 detector activation) all pass. Skinny v1 — cascade suppression / full keyword scan / Test 5 collision smoke / reset-on-2xx deferred to dispatcher v2. 5 latent bugs found and fixed during build (see V2-MASTER-TRACKER decisions log 2026-05-13)."
+          "reason": "Phase B (23 deploys across 6 workflows, V1 invariants preserved) + Phase C smoke (C.1 single, C.2 burst, C.3 Event 11 fallback + recovery, C.4 detector activation) all pass. Skinny v1 \u2014 cascade suppression / full keyword scan / Test 5 collision smoke / reset-on-2xx deferred to dispatcher v2. 5 latent bugs found and fixed during build (see V2-MASTER-TRACKER decisions log 2026-05-13)."
         }
       ]
     },
@@ -140,7 +140,7 @@
       "status": "PROPOSED",
       "priority": "P0",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §2",
+      "vision_source": "OPERATING_MODEL.md \u00a72",
       "v1_reuse": [],
       "v2_new": [
         "Morning brief",
@@ -166,7 +166,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §2 (Test Runner role)",
+      "vision_source": "OPERATING_MODEL.md \u00a72 (Test Runner role)",
       "v1_reuse": [
         "Pattern 30 AI-call-and-parse",
         "Pattern 62 Zoko send"
@@ -216,7 +216,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §2 (Codex role)",
+      "vision_source": "OPERATING_MODEL.md \u00a72 (Codex role)",
       "v1_reuse": [
         "Existing pattern library (40 patterns)",
         "shadow-v2/00_BOOT/canonical/ structure"
@@ -238,7 +238,7 @@
       "status": "IN_PROGRESS",
       "priority": "P0",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §11 (hourly parent updates), BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a711 (hourly parent updates), BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
       "v1_reuse": [
         "Pattern 81 coverage-threshold-alarm",
         "Pattern 80 scheduled-template-send",
@@ -259,7 +259,12 @@
         {
           "status": "IN_PROGRESS",
           "timestamp": "2026-05-12T00:30:00+05:30",
-          "reason": "Recovery memo produced — see V2-010-recovery-memo.md. 18-node workflow deployed to n8n (inactive, v64). 3 failed executions diagnosed: 1 early-version wiring bug (resolved in v64), 2 B16 violations (Sheets 10K+ row read). Build session next."
+          "reason": "Recovery memo produced \u2014 see V2-010-recovery-memo.md. 18-node workflow deployed to n8n (inactive, v64). 3 failed executions diagnosed: 1 early-version wiring bug (resolved in v64), 2 B16 violations (Sheets 10K+ row read). Build session next."
+        },
+        {
+          "status": "IN_PROGRESS",
+          "timestamp": "2026-05-13T15:34:14+05:30",
+          "reason": "Phase 4 Build session 2026-05-13. 8 PATCHes applied to workflow EjN98zekoPpmrihl (20 nodes, was 18): play_time slot added, Lakshmi dropped from routing, +play verbs, B16 fix via new Fetch_Sheet_Metadata HTTP + Compute_Recent_Range Code nodes (C16 forced +1 node beyond spec, Hassan-ratified), C10 continueOnFail on all 4 Sheets reads, Compute_Slots extended to 5 slots. Boarding_Day_Plan schema extended with play_time_target_time column. Shadow SR Check_In populated as smoke target. Smoke STALLED: webhook /coverage-tracker-smoke returns HTTP 200 'Workflow was started' but no executions appear in n8n public API across 90+ seconds, 3 fire attempts, Shadow_Error_Alert silent. Workflow returned to active=false. Full diagnostic: audits/2026-05-13/V2-010-smoke-stall.md (commit 932c25a48e50). Pre-deploy backup: backups/2026-05-13/Boarding_Coverage_Tracker_v1-pre-V2-010-ship.json (commit 7e9a7317ae27). Post-edit export: n8n-exports/Boarding_Coverage_Tracker_v1_2026-05-13_post-V2-010-ship.json (commit f9a2bf57338f). Next session opens with n8n UI executions-tab check."
         }
       ]
     },
@@ -269,7 +274,7 @@
       "status": "PROPOSED",
       "priority": "P0",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §11, BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a711, BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
       "v1_reuse": [
         "Pattern 81",
         "Pattern 80",
@@ -295,7 +300,7 @@
       "status": "PROPOSED",
       "priority": "P0",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §3 (bidirectional query), BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a73 (bidirectional query), BOARDING-8-DECISIONS-LOCKED-2026-05-08.md",
       "v1_reuse": [
         "Pattern 40 intent-gated-context-fetch",
         "Pattern 33 parallel-context-assembly"
@@ -406,13 +411,13 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §1, V2-PHASED-POA-2026-04-25.md Phase 1F",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a71, V2-PHASED-POA-2026-04-25.md Phase 1F",
       "v1_reuse": [
         "Content_Organizer workflow",
         "Pattern 60 media-upload-pipeline"
       ],
       "v2_new": [
-        "Staff shorthand → rich caption via Gemini",
+        "Staff shorthand \u2192 rich caption via Gemini",
         "Dual-write to Cloudinary + Sheets"
       ],
       "depends_on": [],
@@ -427,7 +432,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §2, BOARDING-8-DECISIONS-LOCKED-2026-05-08.md Decision 3",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a72, BOARDING-8-DECISIONS-LOCKED-2026-05-08.md Decision 3",
       "v1_reuse": [
         "Pattern 42 cart-permalink-construction (button template)"
       ],
@@ -450,7 +455,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §3, V2-PHASED-POA-2026-04-25.md Phase 1J",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a73, V2-PHASED-POA-2026-04-25.md Phase 1J",
       "v1_reuse": [
         "Pattern 40 intent-gated-context-fetch",
         "Pattern 61 media-recall-and-gallery"
@@ -471,7 +476,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §4, V2-PHASED-POA-2026-04-25.md Phase 1H",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a74, V2-PHASED-POA-2026-04-25.md Phase 1H",
       "v1_reuse": [
         "Pattern 52 knowledge-bank-capture"
       ],
@@ -492,7 +497,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
-      "vision_source": "WARROOM-MASTER-HANDOFF-2026-04-24.md §A, V2-PHASED-POA-2026-04-25.md Phase 1G",
+      "vision_source": "WARROOM-MASTER-HANDOFF-2026-04-24.md \u00a7A, V2-PHASED-POA-2026-04-25.md Phase 1G",
       "v1_reuse": [
         "Pattern 21 CRM-entity-CRUD",
         "Pattern 22 CRM-data-pushback"
@@ -509,7 +514,7 @@
     },
     {
       "id": "V2-025",
-      "name": "Identity Foundation (Router 31→37)",
+      "name": "Identity Foundation (Router 31\u219237)",
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
@@ -533,7 +538,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §13, V2-PHASED-POA-2026-04-25.md Phase 1D",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a713, V2-PHASED-POA-2026-04-25.md Phase 1D",
       "v1_reuse": [],
       "v2_new": [
         "Household CRM module",
@@ -554,7 +559,7 @@
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "WARROOM-MASTER-HANDOFF-2026-04-24.md §B, V2-PHASED-POA-2026-04-25.md Phase 1E",
+      "vision_source": "WARROOM-MASTER-HANDOFF-2026-04-24.md \u00a7B, V2-PHASED-POA-2026-04-25.md Phase 1E",
       "v1_reuse": [
         "Existing Cloudinary folder structure"
       ],
@@ -595,11 +600,11 @@
     },
     {
       "id": "V2-029",
-      "name": "Route Expansion 6→10",
+      "name": "Route Expansion 6\u219210",
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "V2-PHASED-POA-2026-04-25.md Phase 1L, WARROOM-MASTER-HANDOFF-2026-04-24.md §E",
+      "vision_source": "V2-PHASED-POA-2026-04-25.md Phase 1L, WARROOM-MASTER-HANDOFF-2026-04-24.md \u00a7E",
       "v1_reuse": [
         "Existing 6-route router"
       ],
@@ -617,13 +622,13 @@
     },
     {
       "id": "V2-030",
-      "name": "Shadow.AI Decomposition (260→8 sub-workflows)",
+      "name": "Shadow.AI Decomposition (260\u21928 sub-workflows)",
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md §4 (decomposition targets)",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74 (decomposition targets)",
       "v1_reuse": [
-        "Shadow_Zoko_AI (260 nodes) — extract, don't rewrite"
+        "Shadow_Zoko_AI (260 nodes) \u2014 extract, don't rewrite"
       ],
       "v2_new": [
         "Reception, Memory_Load, Router, Reply_Generator, Vision, Memory_Save, Escalation, Outbound sub-workflows"
@@ -641,11 +646,11 @@
     },
     {
       "id": "V2-031",
-      "name": "Staff_Command_Handler Decomposition (151→5)",
+      "name": "Staff_Command_Handler Decomposition (151\u21925)",
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md §4",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
       "v1_reuse": [
         "Staff_Command_Handler (151 nodes)"
       ],
@@ -662,11 +667,11 @@
     },
     {
       "id": "V2-032",
-      "name": "PHMS Decomposition (83→2)",
+      "name": "PHMS Decomposition (83\u21922)",
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md §4",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
       "v1_reuse": [
         "PHMS_Processor (83 nodes)"
       ],
@@ -686,7 +691,7 @@
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "VISION-LOCK-V2-2026-04-24.md §6 (parent addiction model), docs/strategy/SAAS_MASTER_PLAN.md §4",
+      "vision_source": "VISION-LOCK-V2-2026-04-24.md \u00a76 (parent addiction model), docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
       "v1_reuse": [
         "Pattern 80 scheduled-template-send"
       ],
@@ -709,7 +714,7 @@
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md §10 (Shopify + Zoho Books)",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a710 (Shopify + Zoho Books)",
       "v1_reuse": [
         "Pattern 41 product-scoring-and-ranking",
         "Pattern 42 cart-permalink-construction"
@@ -720,7 +725,7 @@
       ],
       "depends_on": [],
       "blockers": [
-        "Shopify Admin API token expired — rotate before use"
+        "Shopify Admin API token expired \u2014 rotate before use"
       ],
       "related_handoff": "",
       "complexity_estimate": "large",
@@ -732,7 +737,7 @@
       "status": "PROPOSED",
       "priority": "P3",
       "type": "MODULE",
-      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md §4",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
       "v1_reuse": [
         "Pattern 61 media-recall-and-gallery",
         "Pattern 43 cached-sheet-data"
@@ -755,7 +760,7 @@
       "status": "PROPOSED",
       "priority": "P2",
       "type": "MODULE",
-      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md §4",
+      "vision_source": "docs/strategy/SAAS_MASTER_PLAN.md \u00a74",
       "v1_reuse": [
         "Pattern 50 multi-channel-escalation-fanout",
         "Pattern 51 staff-query-roundtrip"
@@ -776,7 +781,7 @@
       "status": "BLOCKED",
       "priority": "P2",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §2, CODEX_BIBLE_INTEGRATION.md",
+      "vision_source": "OPERATING_MODEL.md \u00a72, CODEX_BIBLE_INTEGRATION.md",
       "v1_reuse": [],
       "v2_new": [
         "Python + Claude API drift detection script",
@@ -815,7 +820,7 @@
       "status": "BLOCKED",
       "priority": "P1",
       "type": "DECISION",
-      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md §4 (Zoko button rotation)",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a74 (Zoko button rotation)",
       "v1_reuse": [],
       "v2_new": [],
       "depends_on": [],
@@ -832,7 +837,7 @@
       "status": "BLOCKED",
       "priority": "P2",
       "type": "DECISION",
-      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md §7 (NanoBanana + VEO3)",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a77 (NanoBanana + VEO3)",
       "v1_reuse": [],
       "v2_new": [],
       "depends_on": [],
@@ -849,7 +854,7 @@
       "status": "BLOCKED",
       "priority": "P1",
       "type": "DECISION",
-      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md §6 (Zoho CRM Learning_Case)",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a76 (Zoho CRM Learning_Case)",
       "v1_reuse": [],
       "v2_new": [],
       "depends_on": [],
@@ -866,7 +871,7 @@
       "status": "BLOCKED",
       "priority": "P3",
       "type": "DECISION",
-      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md §7",
+      "vision_source": "V2-MASTER-STRATEGY-2026-04-24.md \u00a77",
       "v1_reuse": [],
       "v2_new": [],
       "depends_on": [],
@@ -888,7 +893,7 @@
       "v2_new": [],
       "depends_on": [],
       "blockers": [
-        "Needs Hassan decision: timeline for Zoko → WhatsApp Cloud API direct migration"
+        "Needs Hassan decision: timeline for Zoko \u2192 WhatsApp Cloud API direct migration"
       ],
       "related_handoff": "",
       "complexity_estimate": "trivial",
@@ -913,7 +918,7 @@
     },
     {
       "id": "V2-008",
-      "name": "Pass 1.5 Omnibus Sweep — drafting + execution",
+      "name": "Pass 1.5 Omnibus Sweep \u2014 drafting + execution",
       "status": "SHIPPED",
       "priority": "P0",
       "type": "INFRASTRUCTURE",
@@ -922,8 +927,8 @@
       "v2_new": [
         "Phase 1 housekeeping batch (A1 bible_thin + A4 vision-doc justification across 8 specs)",
         "Phase 2 section-completeness per spec (B smoke / C edge cases / E rollback / I deployment where applicable)",
-        "Phase 3 architectural decisions consolidated (all 5 outstanding decisions resolved in-session — see Locks 9-13 / D-2026-05-10-15 through D-2026-05-10-19)",
-        "Phase 4 cost realism + per-task INVOKE mode declarations + OPERATING_MODEL §8.1 amendment text — shipped 2026-05-11"
+        "Phase 3 architectural decisions consolidated (all 5 outstanding decisions resolved in-session \u2014 see Locks 9-13 / D-2026-05-10-15 through D-2026-05-10-19)",
+        "Phase 4 cost realism + per-task INVOKE mode declarations + OPERATING_MODEL \u00a78.1 amendment text \u2014 shipped 2026-05-11"
       ],
       "depends_on": [],
       "blockers": [],
@@ -945,20 +950,20 @@
         {
           "status": "SHIPPED",
           "timestamp": "2026-05-11T15:18:03+05:30",
-          "reason": "Phase 4 closure — §8.1 amendment + INVOKE declarations + COST_BUDGET reconciliation"
+          "reason": "Phase 4 closure \u2014 \u00a78.1 amendment + INVOKE declarations + COST_BUDGET reconciliation"
         }
       ]
     },
     {
       "id": "V2-009",
-      "name": "OPERATING_MODEL.md §8.1 amendment — bash-first invocation principle",
+      "name": "OPERATING_MODEL.md \u00a78.1 amendment \u2014 bash-first invocation principle",
       "status": "SHIPPED",
       "priority": "P0",
       "type": "DOC_AMENDMENT",
       "vision_source": "DECISIONS_LOCKED.md D-2026-05-10-13 + D-2026-05-10-19",
       "v1_reuse": [],
       "v2_new": [
-        "New §8.1 sub-section in OPERATING_MODEL.md codifying INVOKE_ON_WORK_DETECTED as default and ALWAYS_INVOKE as exception",
+        "New \u00a78.1 sub-section in OPERATING_MODEL.md codifying INVOKE_ON_WORK_DETECTED as default and ALWAYS_INVOKE as exception",
         "Per-task INVOKE mode declarations in V2-004 SCHEDULED_TASKS.md (coupled deliverable)"
       ],
       "depends_on": [
@@ -972,7 +977,7 @@
         {
           "status": "SHIPPED",
           "timestamp": "2026-05-11T15:18:03+05:30",
-          "reason": "§8.1 amendment landed; SCHEDULED_TASKS declarations applied; SPEC_PREFLIGHT_CHECKLIST A6 added"
+          "reason": "\u00a78.1 amendment landed; SCHEDULED_TASKS declarations applied; SPEC_PREFLIGHT_CHECKLIST A6 added"
         }
       ]
     },
@@ -982,7 +987,7 @@
       "status": "PROPOSED",
       "priority": "P1",
       "type": "INFRASTRUCTURE",
-      "vision_source": "OPERATING_MODEL.md §9, D-2026-05-11-07",
+      "vision_source": "OPERATING_MODEL.md \u00a79, D-2026-05-11-07",
       "v1_reuse": [],
       "v2_new": [
         "Cron-based watch-window polling",
