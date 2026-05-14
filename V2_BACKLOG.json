@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "last_updated": "2026-05-13T23:02:00+05:30",
+  "version": "1.1",
+  "last_updated": "2026-05-14T14:36:00+05:30",
   "generated_from": [
     "project-m-war-room/VISION-LOCK-V2-2026-04-24.md (top canonical authority)",
     "project-m-war-room/V2-MASTER-STRATEGY-2026-04-24.md (top canonical authority)",
@@ -1130,22 +1130,54 @@
           "reason": "Filed at end of Cowork decision batch session V2-050→V2-055. Mid-session, auto-bump commit abc2b79 (github-actions[bot]) regressed V2_PROGRESS.json mid-flight — dropped total_items 45→42, shipped 8→7, pct_complete 17.8→16.7, wiped resolved:6 field. Manually reverted in commit 0b9205f. Left unchecked, this will recur on every backlog update."
         }
       ]
+    },
+    {
+      "id": "V2-054.1",
+      "name": "Journey Recap Renderer Pilot",
+      "status": "PROPOSED",
+      "priority": "P2",
+      "type": "MODULE",
+      "vision_source": "D-2026-05-14-15 (parent decision: pilot-then-pick) + D-2026-05-14-17 through 23 (locked pilot scope)",
+      "v1_reuse": [
+        "V2-011.1 FFmpeg/Cloudinary day-mix pipeline architecture"
+      ],
+      "v2_new": [
+        "Vertex AI + Veo enablement on existing GCP project (Day 1, conditional gate at Day 4)",
+        "NanoBanana access via existing Gemini API credentials (Day 1)",
+        "Pilot scoring harness — 3 criteria with weighted total (looks+brand 60% / cost 30% / reliability incl. complexity 10%)",
+        "Side-by-side review surface for Hassan at end of sprint week 1",
+        "Parallel emerging-tool scan window (Runway, Sora, Pika, Luma, others meeting tactical threshold)",
+        "Sprint output target: 60-90s vertical 1080p MP4 from real V2-011 Phase A shadow-mode boarder clips"
+      ],
+      "depends_on": [],
+      "blockers": [],
+      "related_handoff": "handoffs/SESSION-BOOTSTRAP-2026-05-15-V2-054.1-journey-recap-pilot-scoping.md",
+      "complexity_estimate": "medium",
+      "awaiting_hassan": false,
+      "follow_up_required": "War Room to draft handoffs/HANDOFF-Journey-Recap-Pilot.md based on locked scope (D-2026-05-14-17 through 23). Pilot harness build + Day-1 vendor provisioning is the next Claude Code session.",
+      "status_history": [
+        {
+          "status": "PROPOSED",
+          "timestamp": "2026-05-14T14:36:00+05:30",
+          "reason": "Filed at end of Cowork V2-054.1 scoping session. 7 decisions locked (D-2026-05-14-17 through 23) covering source clips, candidate list, scoring weights (custom 60/30/10), timeline (1-week sprint, VEO3 conditional on Day-4 access gate), vendor provisioning (Claude Code does both VEO3 + NanoBanana on Day 1), VEO3 pause-vs-cut fallback, and output format (60-90s vertical 1080p). Spec is locked; build awaits Claude Code session for pilot harness construction."
+        }
+      ]
     }
   ],
   "summary": {
-    "total_items": 46,
+    "total_items": 47,
     "shipped": 8,
     "in_progress": 1,
     "blocked": 1,
     "approved": 0,
-    "proposed": 29,
+    "proposed": 30,
     "cancelled": 1,
-    "pct_complete": 17.4,
-    "biggest_blocker": "All 6 V2-050→V2-055 architectural decisions resolved (D-2026-05-14-11 → 16). Remaining awaiting_hassan items: V2-028 (remaining Department handlers re-scope to Pattern 91), V2-030 (TBD). Parked separately: HANDOFF-16-A Boarding_Department_v1 activate-or-kill (workflow n4pWSMeLQ5IgKmRI, deployed-but-dark since 2026-05-08).",
+    "pct_complete": 17.0,
+    "biggest_blocker": "V2-054.1 Journey Recap Renderer Pilot filed with locked scope (D-2026-05-14-17 → 23). Pilot harness build + Day-1 vendor provisioning (Vertex AI / Veo + NanoBanana) is next Claude Code session. Remaining awaiting_hassan items: V2-028 (remaining Department handlers re-scope to Pattern 91), V2-030 (TBD). Parked separately: HANDOFF-16-A Boarding_Department_v1 activate-or-kill (workflow n4pWSMeLQ5IgKmRI, deployed-but-dark since 2026-05-08).",
     "next_3_priority": [
+      "V2-054.1 Journey Recap Renderer Pilot (scope locked D-14-17→23, build next)",
       "V2-021 Dynamic Contextual Buttons (unblocked by D-2026-05-14-12)",
-      "V2-023 Self-Learning Engine (unblocked by D-2026-05-14-14)",
-      "V2-012 Parent Q&A (SLA-clarified by D-2026-05-14-11; Pattern 91 re-scope per D-2026-05-14-07)"
+      "V2-023 Self-Learning Engine (unblocked by D-2026-05-14-14)"
     ],
     "last_5_shipped": [
       "V2-011 (2026-05-13)",
@@ -1158,7 +1190,7 @@
       "V2-028",
       "V2-030"
     ],
-    "last_updated": "2026-05-14T22:55:00+05:30",
+    "last_updated": "2026-05-14T14:36:00+05:30",
     "resolved": 6
   }
 }
