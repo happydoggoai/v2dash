@@ -1,15 +1,15 @@
 {
-  "version": "1.4",
-  "last_updated": "2026-05-14T11:46:57+05:30",
+  "version": "1.5",
+  "last_updated": "2026-05-14T12:09:49+05:30",
   "summary": {
-    "total_items": 42,
+    "total_items": 43,
     "shipped": 7,
     "in_progress": 1,
     "blocked": 1,
     "cancelled": 1,
-    "proposed": 26,
+    "proposed": 27,
     "approved": 0,
-    "pct_complete": 16.7,
+    "pct_complete": 16.3,
     "biggest_blocker": "All 6 V2-050→V2-055 architectural decisions resolved (D-2026-05-14-11 → 16). Remaining awaiting_hassan items: V2-028 (remaining Department handlers re-scope to Pattern 91), V2-030 (TBD). Parked separately: HANDOFF-16-A Boarding_Department_v1 activate-or-kill (workflow n4pWSMeLQ5IgKmRI, deployed-but-dark since 2026-05-08).",
     "next_3_priority": [
       "V2-010 Boarding Coverage Tracker",
@@ -32,7 +32,7 @@
     {
       "phase_id": "INFRA",
       "name": "Infrastructure (Telegram, Cost, Rollback, Events, Tasks, Test Runner, Dashboard, Codex)",
-      "pct_complete": 44.4,
+      "pct_complete": 40.0,
       "items": [
         "V2-000",
         "V2-001",
@@ -42,7 +42,8 @@
         "V2-005",
         "V2-006",
         "V2-007",
-        "V2-040"
+        "V2-040",
+        "V2-061"
       ]
     },
     {
