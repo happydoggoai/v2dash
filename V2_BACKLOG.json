@@ -1,6 +1,6 @@
 {
   "version": "1.1",
-  "last_updated": "2026-05-14T16:55:00+05:30",
+  "last_updated": "2026-05-15T04:25:00+05:30",
   "generated_from": [
     "project-m-war-room/VISION-LOCK-V2-2026-04-24.md (top canonical authority)",
     "project-m-war-room/V2-MASTER-STRATEGY-2026-04-24.md (top canonical authority)",
@@ -1187,13 +1187,18 @@
       "blockers": [],
       "related_handoff": "project-b-automation/specs/CAPTION-VOCABULARY-spec.md",
       "complexity_estimate": "medium-high",
-      "awaiting_hassan": true,
-      "follow_up_required": "Hassan to answer 5 OQs in \u00a710 of spec: vocab storage, product button style, medicine parent-visibility, multi-tag body text, massage folder placement.",
+      "awaiting_hassan": false,
+      "follow_up_required": "Phase 1 build ready. 5 blocking OQs resolved D-14-30/31/34. Vocab count updated 35 \u2192 36 (added hydrotherapy). 2 non-blocking OQs remain (storage = repo, body-text format = TBD, retention = TBD) \u2014 handle as defaults during build, surface to Hassan if surfaces complications.",
       "status_history": [
         {
           "status": "PROPOSED",
           "timestamp": "2026-05-14T16:55:00+05:30",
           "reason": "Filed at end of Cowork V2-054.1 v8 build session after architectural discovery: Parse_Caption keyword map is ~12 entries while Select_Buttons supports 25 categories. Hassan listed expansion items not currently parseable. Estimate 7-10 hrs build across 5 phases."
+        },
+        {
+          "status": "PROPOSED",
+          "timestamp": "2026-05-15T04:25:00+05:30",
+          "reason": "Hassan resolved 5 blocking OQs (D-14-30/31/34). awaiting_hassan flipped to false. Spec ready for Phase 1 build. Added hydrotherapy as 36th canonical category. V2-072 Product_Reorder_Handler filed as downstream dependency for OQ-2 button payload."
         }
       ]
     },
@@ -1221,31 +1226,70 @@
       "blockers": [],
       "related_handoff": "project-b-automation/specs/DRIVE-AUTOFOLDER-spec.md",
       "complexity_estimate": "medium",
-      "awaiting_hassan": true,
-      "follow_up_required": "Hassan to answer 5 OQs in \u00a78: retention policy, dual-write vs replace, shortcuts vs copies, _overview subfolder, trigger states.",
+      "awaiting_hassan": false,
+      "follow_up_required": "Phase 1 build ready. 3 blocking OQs resolved D-14-32/33/34. Trigger sources locked: Service_Records.Active webhook AND Shadow_Zoko_AI inbound-media branch. Drive structure = dual-write via shortcuts. Three new department folders: 07_REHAB, 08_MASSAGE, 09_HYDROTHERAPY. Non-blocking OQ-1 retention policy + OQ-4 _overview subfolder \u2014 defaults applied during build.",
       "status_history": [
         {
           "status": "PROPOSED",
           "timestamp": "2026-05-14T16:55:00+05:30",
           "reason": "Filed alongside V2-070. Per-dog Drive folders exist but Content_Organizer never writes to them. Estimate 6-7 hrs build across 4 phases."
+        },
+        {
+          "status": "PROPOSED",
+          "timestamp": "2026-05-15T04:25:00+05:30",
+          "reason": "Hassan resolved 3 blocking OQs (D-14-32/33/34). awaiting_hassan flipped to false. Spec ready for Phase 1 build. Trigger expanded to include Shadow inbound media (catches leads + contact media uploads). Three new dept folders confirmed."
+        }
+      ]
+    },
+    {
+      "id": "V2-072",
+      "name": "Product_Reorder_Handler_v1 \u2014 Razorpay payment link on \"Give {dog} one more\" button",
+      "status": "PROPOSED",
+      "priority": "P3",
+      "type": "MODULE",
+      "vision_source": "D-2026-05-14-31 \u2014 Hassan's product-mention button design pairs info-button with a Razorpay-payment-link button labeled 'Give {dog} one more' for one-tap reorder.",
+      "v1_reuse": [
+        "Razorpay payment link API (creds in .env)",
+        "Zoko WhatsApp text-reply pattern",
+        "CRM contact_id \u2194 Doggo lookup"
+      ],
+      "v2_new": [
+        "Button payload handler workflow: listens for `give_one_more_{product_handle}_{contact_id}_{doggo_id}` payloads from Zoko webhook",
+        "Razorpay payment link generation per product handle + parent contact",
+        "WhatsApp text-reply with the link and contextual message ('Here's the link to reorder Buff Tail for Tuffy: {url}')",
+        "Logging to Sheets: button taps + link-generated + paid status (linked to Razorpay webhook back)"
+      ],
+      "depends_on": [
+        "V2-070 (button payload format finalized in Phase 2)"
+      ],
+      "blockers": [],
+      "related_handoff": "(to be drafted as part of V2-070 Phase 2 spec)",
+      "complexity_estimate": "small-medium",
+      "awaiting_hassan": false,
+      "follow_up_required": "Buildable once V2-070 Phase 2 (Select_Buttons extension) lands the button payload schema.",
+      "status_history": [
+        {
+          "status": "PROPOSED",
+          "timestamp": "2026-05-15T04:25:00+05:30",
+          "reason": "Filed as downstream of D-2026-05-14-31. Hassan asked for 'Give Tuffy one more' button to trigger payment link send \u2014 that's its own workflow handling button payloads + Razorpay API + WhatsApp reply. Small-medium scope, depends on V2-070 Phase 2 finalizing button payload schema."
         }
       ]
     }
   ],
   "summary": {
-    "total_items": 49,
+    "total_items": 50,
     "shipped": 8,
     "in_progress": 1,
     "blocked": 1,
     "approved": 0,
-    "proposed": 32,
+    "proposed": 33,
     "cancelled": 1,
-    "pct_complete": 16.3,
-    "biggest_blocker": "V2-054.1 Day-1 shipped (handoff 9a7e9f0b + test boarder b5c5039f + arch recommendation f4d994b0). v8 build identified content_category as canonical clip-tag column. Parallel queued: V2-070 Caption Vocab + V2-071 Drive Auto-Foldering (both awaiting_hassan on OQs).",
+    "pct_complete": 16.0,
+    "biggest_blocker": "V2-054.1 Day-1 shipped. V2-070 + V2-071 unblocked (Hassan answered 5 blocking OQs as D-14-30\u219234). Next Claude Code build session: V2-054.1 Day-2 (pull_picked_clips.js) + V2-070 Phase 1 (vocab config + Parse_Caption rewrite) + V2-071 Phase 1 (Dog_Folder_Provisioner). V2-072 (Razorpay reorder handler) queued behind V2-070 Phase 2.",
     "next_3_priority": [
       "V2-054.1 Day-2 (pull_picked_clips.js using content_category)",
-      "V2-070 + V2-071 Hassan OQ resolution",
-      "V2-021 Dynamic Contextual Buttons"
+      "V2-070 Phase 1 (vocab config + Parse_Caption v2 rewrite, 36 categories)",
+      "V2-071 Phase 1 (Dog_Folder_Provisioner_v1 with dual trigger: Active SR + Shadow inbound media)"
     ],
     "last_5_shipped": [
       "V2-011 (2026-05-13)",
