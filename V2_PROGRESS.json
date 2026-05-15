@@ -1,16 +1,16 @@
 {
-  "version": "1.6",
-  "last_updated": "2026-05-15T10:14:54+05:30",
+  "version": "1.4",
+  "last_updated": "2026-05-16T00:27:44+05:30",
   "summary": {
-    "total_items": 46,
+    "total_items": 42,
     "shipped": 7,
     "in_progress": 1,
     "blocked": 1,
     "cancelled": 1,
-    "proposed": 30,
+    "proposed": 26,
     "approved": 0,
-    "pct_complete": 15.2,
-    "biggest_blocker": "V2-054.1 Journey Recap Renderer Pilot filed with locked scope (D-2026-05-14-17 → 23). Pilot harness build + Day-1 vendor provisioning (Vertex AI / Veo + NanoBanana) is next Claude Code session. Remaining awaiting_hassan items: V2-028 (remaining Department handlers re-scope to Pattern 91), V2-030 (TBD). Parked separately: HANDOFF-16-A Boarding_Department_v1 activate-or-kill (workflow n4pWSMeLQ5IgKmRI, deployed-but-dark since 2026-05-08).",
+    "pct_complete": 16.7,
+    "biggest_blocker": "All 6 V2-050→V2-055 architectural decisions resolved (D-2026-05-14-11 → 16). Remaining awaiting_hassan items: V2-028 (remaining Department handlers re-scope to Pattern 91), V2-030 (TBD). Parked separately: HANDOFF-16-A Boarding_Department_v1 activate-or-kill (workflow n4pWSMeLQ5IgKmRI, deployed-but-dark since 2026-05-08).",
     "next_3_priority": [
       "V2-010 Boarding Coverage Tracker",
       "V2-004 Scheduled Tasks (8 tasks)",
@@ -32,7 +32,7 @@
     {
       "phase_id": "INFRA",
       "name": "Infrastructure (Telegram, Cost, Rollback, Events, Tasks, Test Runner, Dashboard, Codex)",
-      "pct_complete": 40.0,
+      "pct_complete": 44.4,
       "items": [
         "V2-000",
         "V2-001",
@@ -42,8 +42,7 @@
         "V2-005",
         "V2-006",
         "V2-007",
-        "V2-040",
-        "V2-061"
+        "V2-040"
       ]
     },
     {
@@ -112,9 +111,5 @@
         "V2-060"
       ]
     }
-  ],
-  "total_items": 50,
-  "proposed": 33,
-  "shipped": 8,
-  "pct_complete": 16.0
+  ]
 }
