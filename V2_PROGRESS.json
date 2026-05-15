@@ -1,15 +1,15 @@
 {
   "version": "1.6",
-  "last_updated": "2026-05-15T09:48:20+05:30",
+  "last_updated": "2026-05-15T10:14:54+05:30",
   "summary": {
-    "total_items": 45,
+    "total_items": 46,
     "shipped": 7,
     "in_progress": 1,
     "blocked": 1,
     "cancelled": 1,
-    "proposed": 29,
+    "proposed": 30,
     "approved": 0,
-    "pct_complete": 15.6,
+    "pct_complete": 15.2,
     "biggest_blocker": "V2-054.1 Journey Recap Renderer Pilot filed with locked scope (D-2026-05-14-17 → 23). Pilot harness build + Day-1 vendor provisioning (Vertex AI / Veo + NanoBanana) is next Claude Code session. Remaining awaiting_hassan items: V2-028 (remaining Department handlers re-scope to Pattern 91), V2-030 (TBD). Parked separately: HANDOFF-16-A Boarding_Department_v1 activate-or-kill (workflow n4pWSMeLQ5IgKmRI, deployed-but-dark since 2026-05-08).",
     "next_3_priority": [
       "V2-010 Boarding Coverage Tracker",
@@ -25,9 +25,7 @@
     ],
     "items_awaiting_hassan": [
       "V2-028",
-      "V2-030",
-      "V2-070",
-      "V2-071"
+      "V2-030"
     ]
   },
   "phases": [
@@ -114,5 +112,9 @@
         "V2-060"
       ]
     }
-  ]
+  ],
+  "total_items": 50,
+  "proposed": 33,
+  "shipped": 8,
+  "pct_complete": 16.0
 }
